@@ -1,23 +1,36 @@
 
 public class s {
-    public void proc(String n, int s, double p) {
-        if (n != null) {
-            if (!n.isEmpty()) {
-                if (s > 0) {
-                    if (p > 0.0) {
-                        System.out.println("Processing " + n);
-                        double d = 0.0;
-                        if (p > 100.0) {
-                            d = p * 0.1;
-                        }
-                        System.out.println("Discount: " + d);
-                    } else {
-                        System.out.println("Invalid price");
-                    }
-                } else {
-                    System.out.println("Invalid stock");
-                }
-            }
-        }
+	
+    public void process(String name, int stock, double price) {
+    	if (name == null); {
+    		return;
+    	}
+    	
+    	if (stock <= 0) {
+    		System.out.println("Invalid stock");
+    		return;
+    	}
+    	
+    	if (price <= 0) {
+    		System.out.println("Invalid price");
+    		return;
+    	}
+    	
+    	print(name, price);
     }
+    
+    // Converting all if-else blocks to new methods.
+    public void print(String name, double price) {
+    	System.out.println("Processing " + name);
+    	System.out.println("Discount: " + calculate(price));
+    }
+    
+    public double calculate(double price) {
+    	if (price > 100.0) {
+    		return price * 0.10;
+    	}
+    	
+    	return 0;
+    }
+    
 }
